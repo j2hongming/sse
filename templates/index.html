@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSE Example</title>
+</head>
+<body>
+    <h1>Server-Sent Events</h1>
+    <div id="events"></div>
+    <script type="text/javascript">
+        const eventSource = new EventSource('/stream');
+        eventSource.onmessage = function(event) {
+            const eventsDiv = document.getElementById('events');
+            eventsDiv.innerHTML += `<p>${event.data}</p>`;
+        };
+    </script>
+</body>
+</html>
